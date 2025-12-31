@@ -48,7 +48,7 @@ that connects them with minimal relative entropy. This reveals the "most likely"
 ✅ **Microstructure effect**: Bridge reveals underlying market-making forces  
 
 ## 📁 Project Structure
-
+```text
 schrodinger_bridge_intraday/
 ├── src/
 │ ├── data_loader.py # Data collection from Yahoo Finance
