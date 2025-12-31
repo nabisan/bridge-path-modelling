@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
 
-print("📊 Improved Data Collection - Multiple Weeks")
+print("Improved Data Collection - Multiple Weeks")
 print("="*60)
 
 ticker = yf.Ticker("SPY")
@@ -29,7 +29,7 @@ for week in range(4):  # Last 4 weeks
         data = ticker.history(start=start_date, end=end_date, interval="1m")
         
         if len(data) == 0:
-            print(f"  ⚠️ No data for this week, skipping...")
+            print(f"  No data for this week, skipping...")
             continue
             
         # Process data
@@ -57,10 +57,10 @@ for week in range(4):  # Last 4 weeks
         all_open_returns.extend(open_ret.values)
         all_close_returns.extend(close_ret.values)
         
-        print(f"  ✅ Got {len(open_ret)} open returns, {len(close_ret)} close returns")
+        print(f" Got {len(open_ret)} open returns, {len(close_ret)} close returns")
         
     except Exception as e:
-        print(f"  ❌ Error: {e}")
+        print(f" Error: {e}")
         continue
 
 # Combine all data
@@ -75,7 +75,7 @@ print(f"Close returns : N={len(close_returns)}, μ={close_returns['returns'].mea
 open_returns.to_csv('data/open_returns.csv', index=False)
 close_returns.to_csv('data/close_returns.csv', index=False)
 
-print(f"\n✅ Saved to data/ folder")
+print(f"\n Saved to data/ folder")
 print("="*60)
-print("🎉 Improved data collection complete!")
+print("    Improved data collection complete!")
 

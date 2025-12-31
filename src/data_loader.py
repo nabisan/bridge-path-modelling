@@ -28,7 +28,7 @@ class DataLoader:
     
     def fetch_data(self):
         """Fetch intraday data from Yahoo Finance"""
-        print(f"📊 Fetching {self.ticker} data for {self.weeks_back} weeks...")
+        print(f"Fetching {self.ticker} data for {self.weeks_back} weeks...")
         
         ticker_obj = yf.Ticker(self.ticker)
         all_data = []
@@ -44,10 +44,10 @@ class DataLoader:
                 
                 if len(data) > 0:
                     all_data.append(data)
-                    print(f"    ✅ {len(data)} records")
+                    print(f"    {len(data)} records")
                 
             except Exception as e:
-                print(f"    ⚠️ Error: {e}")
+                print(f"      Error: {e}")
                 continue
         
         if not all_data:
@@ -59,13 +59,13 @@ class DataLoader:
         # Save raw data
         raw_path = Path(self.config['paths']['raw_data']) / 'spy_intraday_full.csv'
         combined_data.to_csv(raw_path)
-        print(f"✅ Saved raw data: {raw_path}")
+        print(f"Saved raw data: {raw_path}")
         
         return combined_data
     
     def process_returns(self, data):
         """Process data to extract open/close returns"""
-        print("\n🔄 Processing returns...")
+        print("\n Processing returns...")
         
         # Remove timezone if present
         if hasattr(data.index, 'tz_localize'):
@@ -95,8 +95,8 @@ class DataLoader:
         open_returns.to_csv(processed_path / 'open_returns.csv', index=False, header=['returns'])
         close_returns.to_csv(processed_path / 'close_returns.csv', index=False, header=['returns'])
         
-        print(f"✅ Open returns: {len(open_returns)} samples")
-        print(f"✅ Close returns: {len(close_returns)} samples")
+        print(f"Open returns: {len(open_returns)} samples")
+        print(f"Close returns: {len(close_returns)} samples")
         
         return open_returns, close_returns
     
@@ -116,7 +116,7 @@ if __name__ == "__main__":
     data = loader.fetch_data()
     open_ret, close_ret = loader.process_returns(data)
     
-    print(f"\n📊 Summary:")
+    print(f"\n Summary:")
     print(f"   Open: μ={open_ret.mean():.6f}, σ={open_ret.std():.6f}")
     print(f"   Close: μ={close_ret.mean():.6f}, σ={close_ret.std():.6f}")
 

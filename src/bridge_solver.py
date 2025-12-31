@@ -33,7 +33,7 @@ class SchrodingerBridge:
         
         Using Gaussian approximation for tractability
         """
-        print("\n🌉 Computing Schrödinger Bridge...")
+        print("\n Computing Schrödinger Bridge...")
         
         # Fit Gaussian to marginals
         self.mu_0 = open_returns.mean()
@@ -60,7 +60,7 @@ class SchrodingerBridge:
         # Mean reversion strength
         self.reversion_strength = abs(self.drift) / self.volatility
         
-        print(f"\n📊 Bridge parameters:")
+        print(f"\n Bridge parameters:")
         print(f"   Drift: {self.drift:.6f}")
         print(f"   Volatility: {self.volatility:.6f}")
         print(f"   Reversion strength: {self.reversion_strength:.4f}")
@@ -100,7 +100,7 @@ class SchrodingerBridge:
         })
         summary.to_csv(results_path / 'summary_stats.csv', index=False)
         
-        print(f"✅ Results saved to {results_path}")
+        print(f" Results saved to {results_path}")
 
 
 if __name__ == "__main__":
@@ -114,5 +114,5 @@ if __name__ == "__main__":
     bridge.fit(open_ret, close_ret)
     bridge.save_results()
     
-    print("\n✅ Bridge computation complete!")
+    print("\n Bridge computation complete!")
 

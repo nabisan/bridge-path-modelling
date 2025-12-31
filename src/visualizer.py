@@ -31,7 +31,7 @@ class Visualizer:
     
     def plot_distributions(self, open_returns, close_returns):
         """Plot open vs close return distributions"""
-        print("\n📊 Creating distribution plots...")
+        print("\n  Creating distribution plots...")
         
         fig, axes = plt.subplots(1, 3, figsize=(16, 5))
         
@@ -79,14 +79,14 @@ class Visualizer:
         plt.tight_layout()
         output_path = self.figures_path / 'distributions.png'
         plt.savefig(output_path, dpi=150, bbox_inches='tight')
-        print(f"✅ Saved: {output_path}")
+        print(f" Saved: {output_path}")
         plt.close()
         
         return output_path
     
     def plot_bridge_evolution(self, bridge_results):
         """Plot Schrödinger Bridge evolution"""
-        print("\n🌉 Creating bridge evolution plots...")
+        print("\n Creating bridge evolution plots...")
         
         t_grid = bridge_results['t']
         mu_t = bridge_results['mu']
@@ -140,14 +140,14 @@ class Visualizer:
         plt.tight_layout()
         output_path = self.figures_path / 'bridge_evolution.png'
         plt.savefig(output_path, dpi=150, bbox_inches='tight')
-        print(f"✅ Saved: {output_path}")
+        print(f"  Saved: {output_path}")
         plt.close()
         
         return output_path
     
     def create_summary_plot(self, open_returns, close_returns, bridge_results):
         """Create comprehensive summary visualization"""
-        print("\n📈 Creating summary plot...")
+        print("\n  Creating summary plot...")
         
         fig = plt.figure(figsize=(16, 10))
         gs = fig.add_gridspec(3, 3, hspace=0.3, wspace=0.3)
@@ -240,7 +240,7 @@ class Visualizer:
         
         output_path = self.figures_path / 'summary.png'
         plt.savefig(output_path, dpi=150, bbox_inches='tight')
-        print(f"✅ Saved: {output_path}")
+        print(f"  Saved: {output_path}")
         plt.close()
         
         return output_path
@@ -263,5 +263,5 @@ if __name__ == "__main__":
     viz.plot_bridge_evolution(bridge_results)
     viz.create_summary_plot(open_ret, close_ret, bridge_results)
     
-    print("\n✅ All visualizations created!")
+    print("\n  All visualizations created!")
 
