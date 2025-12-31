@@ -64,7 +64,7 @@ schrodinger_bridge_intraday/
 │ └── tables/ # Results CSVs
 ├── config.yaml # Configuration
 └── README.md
-
+```text
 ## 🚀 Quick Start
 
 ### Using Docker (Recommended)
