@@ -1,0 +1,21 @@
+# Configuration for Schrödinger Bridge Analysis
+
+data:
+  ticker: "SPY"
+  weeks_back: 4
+  interval: "1m"
+  market_open: "09:30:00"
+  market_close: "16:00:00"
+  open_window: "09:35:00"
+  close_start: "15:55:00"
+
+bridge:
+  time_steps: 100
+  normalize_time: true
+
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  results_figures: "results/figures"
+  results_tables: "results/tables"
+

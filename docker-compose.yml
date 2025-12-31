@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  schrodinger-bridge:
+    build: .
+    container_name: schrodinger_bridge_dev
+    volumes:
+      - .:/app
+      - ./data:/app/data
+      - ./results:/app/results
+    ports:
+      - "8888:8888"
+    environment:
+      - PYTHONUNBUFFERED=1
+    stdin_open: true
+    tty: true
+
